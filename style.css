@@ -1,0 +1,48 @@
+:root{
+    --background-color: hsl(31, 40%, 76%);
+    --card-background-color: white;
+    --card-text-color: #422006;
+
+}
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+.wrapper{
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.card-container{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.card{
+    height: 400px;
+    width: 400px;
+    background-color: var(--card-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid hsl(33, 12%, 51%);
+}
+
+.card > *{
+    flex: 1;
+}
+
+.card button{
+    width: 100%;
+    background-color: var(--card-text-color);
+    color: white;
+    font-size: 20px;
+}
+
+h1{
+    color: var(--card-text-color);
+}
