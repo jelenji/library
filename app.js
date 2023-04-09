@@ -1,4 +1,7 @@
 let myLibrary = [];
+let overlay = document.querySelector(".overlay");
+let modal = document.querySelector(".modal");
+let newBook = document.querySelector(".new-book");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -6,6 +9,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+
 let test1 = new Book("test1", "author1", 300, 0);
 let test2 = new Book("test2", "author2", 1100, 1);
 
@@ -14,6 +18,12 @@ function addBookToLibrary(book) {
 }
 
 addBookToLibrary(test1);
+addBookToLibrary(test2);
+addBookToLibrary(test2);
+addBookToLibrary(test2);
+addBookToLibrary(test2);
+addBookToLibrary(test2);
+addBookToLibrary(test2);
 addBookToLibrary(test2);
 
 function displayLibrary(library) {
@@ -41,11 +51,29 @@ function displayLibrary(library) {
     card.appendChild(element);
 
     element = document.createElement("button");
-    element.textContent = 'Remove';
+    element.textContent = "Remove";
     card.appendChild(element);
 
     cards.appendChild(card);
   }
 }
+
+function showModal() {
+  overlay.classList.add("active");
+  modal.classList.add("active");
+}
+
+function hideModal() {
+  overlay.classList.remove("active");
+  modal.classList.remove("active");
+}
+
+overlay.addEventListener("click", () => {
+  hideModal();
+});
+
+newBook.addEventListener("click", ()=>{
+    showModal();
+})
 
 displayLibrary(myLibrary);
