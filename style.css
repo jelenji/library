@@ -1,8 +1,8 @@
 :root{
-    --background-color: hsl(31, 40%, 76%);
-    --card-background-color: white;
+    --background-color: hsl(32, 33%, 75%);
+    --card-background-color: #fafafa;
     --card-text-color: #422006;
-
+    --modal-background-color: #f0eef1;
 }
 
 *{
@@ -45,4 +45,90 @@
 
 h1{
     color: var(--card-text-color);
+}
+
+.modal{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 400px;
+    height: 500px;
+    max-width: 80%;
+    max-height: 60%;
+    border: 1px solid black;
+    padding: 1.25em;
+    border-radius: 15px;
+    background-color: var(--modal-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 3;
+
+}
+.modal .active{
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: rgba(0,0,0,0.5);
+}
+
+.overlay .active{
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 2em;
+}
+
+legend{
+    font-size: 40px;
+}
+
+input[type="text"],
+input[type="number"]{
+    width:100%;
+    padding: 1em;
+    font-size: 1.3em;
+}
+
+input[type="checkbox"]{
+    height: 2.5em;
+    width: 2.5em;
+}
+
+input[type="submit"]{
+    width: 60%;
+    font-size: 1.3em;
+    padding: .5em;
+    border-radius: 15px;
+}
+
+.read-container{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+label{
+    font-size: 1.3em;
 }
