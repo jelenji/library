@@ -1,7 +1,8 @@
 let myLibrary = [];
 let overlay = document.querySelector(".overlay");
 let modal = document.querySelector(".modal");
-let newBook = document.querySelector(".new-book");
+let newBookBtn = document.querySelector(".new-book");
+let form = document.querySelector("#form");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -17,18 +18,20 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-addBookToLibrary(test1);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
-addBookToLibrary(test2);
+// addBookToLibrary(test1);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
+// addBookToLibrary(test2);
 
 function displayLibrary(library) {
   let cards = document.querySelector(".card-container");
   let card, element;
+
+  cards.textContent = '';
   for (let i = 0; i < library.length; i++) {
     card = document.createElement("div");
     card.classList.add("card");
@@ -47,7 +50,7 @@ function displayLibrary(library) {
     card.appendChild(element);
 
     element = document.createElement("h1");
-    element.textContent = library[i].pages === 1 ? "Read" : "Not Read";
+    element.textContent = library[i].pages === true ? "Read" : "Not Read";
     card.appendChild(element);
 
     element = document.createElement("button");
@@ -72,8 +75,23 @@ overlay.addEventListener("click", () => {
   hideModal();
 });
 
-newBook.addEventListener("click", ()=>{
-    showModal();
-})
+newBookBtn.addEventListener("click", () => {
+  showModal();
+});
 
-displayLibrary(myLibrary);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let title = document.querySelector("#title").value;
+  let author = document.querySelector("#author").value;
+  let pages = document.querySelector("#pages").value;
+  let read = document.querySelector("#read").checked;
+
+  console.log(read);
+
+  let newBook = new Book(title, author, pages, read);
+
+  addBookToLibrary(newBook);
+  console.log(myLibrary);
+  displayLibrary(myLibrary);
+});
