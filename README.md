@@ -1,5 +1,7 @@
 # Library
 
+[Live Demo](https://jelenji.github.io/library/)
+
 Welcome to the Library project! This is a simple web application for managing a library's collection of books.
 
 ## Features
