@@ -1,154 +1,227 @@
-:root{
-    --background-color: hsl(32, 33%, 75%);
-    --card-background-color: #fafafa;
-    --card-text-color: #422006;
-    --modal-background-color: #f0eef1;
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500&display=swap');
+
+:root {
+  --background-color: #1e2342;
+  --card-background-color: #424769;
+  --card-text-color: #ffffff;
+  --modal-background-color: #f0eef1;
+  --secondary: #f9b17a;
+  --secondary-alt: #f9b17ae0;
+  --third-color: #d2122e;
+  --third-color-alt: #d2122fe3;
+  --fourth-color: #676f9d;
 }
 
-*{
-    margin:0;
-    padding: 0;
+::placeholder{
+    color: white
 }
 
-.wrapper{
-    min-height: 100vh;
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Schibsted Grotesk', sans-serif;
 }
 
-.button-container{
-    flex: .3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.wrapper {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.new-book{
-    width: 200px;
-    height: 50px;
+.button-container {
+  flex: 0.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-container{
-    
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
+.new-book {
+  width: 100px;
+  height: 100px;
+  background-color: var(--background-color);
+  border: 5px solid var(--secondary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.new-book:hover 
+{
+    border: 5px solid var(--secondary-alt);
+    fill: var(--secondary);
 }
 
-.card{
-    height: 400px;
-    width: 400px;
-    background-color: var(--card-background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 5px solid hsl(33, 12%, 51%);
+.new-book svg {
+  width: 70px;
+  fill: var(--secondary);
 }
 
-.card > *{
-    flex: 1;
+.new-book:hover > svg {
+    fill: var(--secondary-alt);
+  }
+
+
+
+.card-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 50%;
+  margin-top: 20px;
 }
 
-.card button{
-    width: 100%;
-    background-color: var(--card-text-color);
-    color: white;
-    font-size: 20px;
+.card {
+  height: 400px;
+  width: 400px;
+  background-color: var(--card-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid var(--secondary);
 }
 
-h1{
-    color: var(--card-text-color);
+.card > * {
+  flex: 1;
 }
 
-.modal{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 400px;
-    height: 500px;
-    max-width: 80%;
-    max-height: 60%;
-    border: 1px solid black;
-    padding: 1.25em;
-    border-radius: 15px;
-    background-color: var(--modal-background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    z-index: 3;
-
-}
-.modal.active{
-    transform: translate(-50%, -50%) scale(1);
+.remove,
+.read {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
-.overlay{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background-color: rgba(0,0,0,0.5);
+.remove {
+  background-color: var(--third-color);
+  color: white;
+}
+.remove:hover {
+  background-color: var(--third-color-alt);
+}
+.read {
+  background-color: var(--secondary);
+  color: var(--card-background-color);
 }
 
-.overlay.active{
-    transform: translate(-50%, -50%) scale(1);
+.read:hover {
+  background-color: var(--secondary-alt);
 }
 
-.modal-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+h1 {
+  color: var(--card-text-color);
 }
 
-form{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    gap: 2em;
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 400px;
+  height: 500px;
+  max-width: 80%;
+  max-height: 60%;
+  border: 1px solid black;
+  padding: 1.25em;
+  border-radius: 15px;
+  background-color: var(--card-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  z-index: 3;
+}
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
 }
 
-legend{
-    font-size: 40px;
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  gap: 2em;
+}
+
+legend {
+  font-size: 40px;
+  color: #ffffff;
 }
 
 input[type="text"],
-input[type="number"]{
-    width:100%;
-    padding: 1em;
-    font-size: 1.3em;
+input[type="number"] {
+  width: 100%;
+  padding: 1em;
+  font-size: 1.3em;
+  background-color: var(--fourth-color);
+  outline: none;
+  border: none;
+  color: #ffffff;
 }
 
-input[type="checkbox"]{
-    height: 2.5em;
-    width: 2.5em;
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border: 4px solid var(--secondary)
 }
 
-input[type="submit"]{
-    width: 60%;
-    font-size: 1.3em;
-    padding: .5em;
-    border-radius: 15px;
+input[type="checkbox"] {
+  height: 2.5em;
+  width: 2.5em;
 }
 
-.read-container{
-    display: flex;
-    align-items: center;
-    gap: 1em;
+input[type="submit"] {
+  width: 60%;
+  font-size: 1.3em;
+  padding: 0.5em;
+  border-radius: 15px;
+  background-color: var(--secondary);
+  color: var(--card-background-color);
+  border: none;
 }
 
-label{
-    font-size: 1.3em;
+input[type="submit"]:hover{
+    background-color: var(--secondary-alt);
 }
+
+.read-container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+label {
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+/*.header{
+    background-color: var(--secondary);
+    flex: .5;
+    width: 100%;
+}*/
